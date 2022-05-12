@@ -1,28 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   ft_isint.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lbarbosa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/11 17:56:46 by lbarbosa          #+#    #+#             */
-/*   Updated: 2022/03/07 17:37:39 by lbarbosa         ###   ########.fr       */
+/*   Created: 2022/03/11 18:38:54 by lbarbosa          #+#    #+#             */
+/*   Updated: 2022/04/22 19:36:37 by lbarbosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-t_list	*ft_lstnew(void *content)
+int	ft_isint(char *str)
 {
-	t_list	*head;
-	t_list	*temp;
+	int	i;
 
-	head = NULL;
-	temp = (t_list *)malloc(sizeof(t_list));
-	if (temp == NULL)
-		return (NULL);
-	temp->content = content;
-	temp->next = NULL;
-	head = temp;
-	return (head);
+	i = 0;
+	if (str[i] == '+' || str[i] == '-')
+		i++;
+	while (str[i])
+	{
+		if (str[i] < '0' || str[i] > '9')
+			return (0);
+		i++;
+	}
+	return (1);
 }

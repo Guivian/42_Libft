@@ -1,28 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   ft_arrcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lbarbosa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/11 17:56:46 by lbarbosa          #+#    #+#             */
-/*   Updated: 2022/03/07 17:37:39 by lbarbosa         ###   ########.fr       */
+/*   Created: 2022/04/27 11:05:23 by lbarbosa          #+#    #+#             */
+/*   Updated: 2022/05/02 17:39:27 by lbarbosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstnew(void *content)
+int	*ft_arrcpy(int *src, int *dst, int len)
 {
-	t_list	*head;
-	t_list	*temp;
+	int	i;
 
-	head = NULL;
-	temp = (t_list *)malloc(sizeof(t_list));
-	if (temp == NULL)
-		return (NULL);
-	temp->content = content;
-	temp->next = NULL;
-	head = temp;
-	return (head);
+	dst = malloc(sizeof(int) * len);
+	i = -1;
+	while (++i < len)
+		dst[i] = src[i];
+	return (dst);
 }
